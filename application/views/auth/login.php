@@ -1,7 +1,11 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
-
-<div id="infoMessage"><?php echo $message;?></div>
+</br></br></br></br></br></br><div class="site-section bg-light" id="contact-section" >
+      <div class="col-sm-offset-3 container">
+        <div class="row justify-content-center text-center"">
+        <div class="col-7 text-center mb-5">
+          <h3>Se connecter pour continuer la navigation </h3>
+          <p></p></hr></br>
+          <div id="infoMessage"><?php echo $message;?></div>
+        </div>
 
 <?php echo form_open("auth/login");?>
 
@@ -22,7 +26,9 @@
 
 
   <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
+  <p><?php echo anchor('auth/create_user','Creer un compte');?></p>
 
 <?php echo form_close();?>
 
 <p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+</div></div></div>

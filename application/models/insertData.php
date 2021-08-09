@@ -1,29 +1,26 @@
 <?php
 class insertData extends CI_Model{
-    public function addImg($imgData)
-    {
-        $data=array(
-            'nameImg' => $imgData['img']
-        );
-        $query=$this->db->insert('images', $data);
-    }
-    public function addVideo($videoData)
-    {
-        $data=array(
-            'nameVideo' => $videoData['video']
-        );
-        $query=$this->db->insert('videos', $data);
-    }
-    public function addUrl($urlData)
-    {
-        $data=array(
-            'nameUrl'=>$urlData["url"]
-        );
-        $query=$this->db->insert('urlMaker', $data);
-    }
+    
     public function addProd($data)
     {
+        $dataimg=array(
+            'nameImg' => $data['img'],
+            'codeBarProd'=>$data['codeBarProd']
+        );
+        $query=$this->db->insert('images', $dataimg);
 
+        $dataVid=array(
+            'nameVideo' => $data['video'],
+            'codeBarProd'=>$data['codeBarProd']
+        );
+        $query=$this->db->insert('videos', $dataVid);
+
+        /*$dataUrl=array(
+            'nameUrl'=>$data["url"],
+            'codeBarProd'=>$data['codeBarProd']
+        );
+        $query=$this->db->insert('urlMaker', $dataUrl);
+*/
         $dataProd=array(
             'codeBarProd'=> $data['codeBarProd'],
             'nameProd'=> $data['nameProd'],
@@ -42,30 +39,22 @@ class insertData extends CI_Model{
             'urlYoutube'=> $data['urlYoutube'],
             'urlPinterest'=> $data['urlPinterest'],
             
+            'adressePvte'=>$data['adressePtVte'],
+            'telSitePvte'=>$data['telSitePtVte'],
+            'nomPvte'=>$data['nomPtVte'],
+
+            
          );
          $query=$this->db->insert('produits', $dataProd);
 
     }
-    public function addPaysPtVte($data)
-    {
-        $datePtVte=array(
-            'paysPtVte'=>$data['paysPtVte'],
-         );
-         $query=$this->db->insert('pointvente', $datePtVte);
-    }
 
-    public function addVillePtVte($dataVille)
+
+    /*public function changeStatus()
     {
-        $datePtVte=array(
-                'villePtVte'=>$dataVille['villePtVte'],
-             );
-             $query=$this->db->insert('pointvente', $datePtVte);
-    }
-    public function addAdressePtVte($dataAddress)
-    {
-        $datePtVte=array(
-                  'adressePtVte'=>$dataAddress['adressePtVte'],
+        $stateProd=array(
+                  'prodState'=>1,
               );
-              $query=$this->db->insert('pointvente', $datePtVte);
-    }
+              $this->db->replace('produits', $stateProd);
+    }*/
 }

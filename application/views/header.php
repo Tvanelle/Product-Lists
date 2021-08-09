@@ -28,7 +28,7 @@
 
         <!-- Material Design Bootstrap -->
         <link href="<?= base_url() ?>public/css/mdb.min.css" rel="stylesheet">
-
+        
 
 
         <!-- Your custom styles (optional) -->
@@ -53,7 +53,7 @@
                     <!--Navbar Brand-->
                     <a class="navbar-brand" href="#home"><img src="<?= base_url() ?>public/img/Products-lists.jpg" alt="" /></a>
                     <!--Links-->
-                    <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
+                     <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url() ?>index.php/Welcome">Accueil</a>
                         </li>
@@ -67,7 +67,7 @@
                             <a class="nav-link" href="<?= base_url() ?>index.php/Contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="#!"><i class="fa fa-search fa-lg"></i></a>
+                            <a class="nav-link" target="_blank" href="<?= base_url() ?>index.php/Auth/login"><i class="fa fa-user fa-lg"></i></a>
                         </li>
                     </ul>
                     
@@ -90,7 +90,7 @@
                             <a class="nav-link" href="<?= base_url() ?>index.php/Contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="#!"><i class="fa fa-search fa-lg"></i></a>
+                            <a class="nav-link" target="_blank" href="#!"><i class="fa fa-user fa-lg"></i></a>
                         </li>
                     </ul>
                 </div>

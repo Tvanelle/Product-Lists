@@ -32,11 +32,11 @@ class Auth extends CI_Controller
 			// redirect them to the login page
 			redirect('auth/login', 'refresh');
 		}
-		else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		/*else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
 		{
 			// redirect them to the home page because they must be an administrator to view this
 			show_error('You must be an administrator to view this page.');
-		}
+		}*/
 		else
 		{
 			$this->data['title'] = $this->lang->line('index_heading');
@@ -80,6 +80,8 @@ class Auth extends CI_Controller
 			{
 				//if the login is successful
 				//redirect them back to the home page
+				//$this->load->model('insertData');
+				//$this->insertData->changeStatus();
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				redirect('/', 'refresh');
 			}
@@ -109,8 +111,9 @@ class Auth extends CI_Controller
 				'id' => 'password',
 				'type' => 'password',
 			];
-
+            $this->load->view('header');
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login', $this->data);
+			$this->load->view('footer');
 		}
 	}
 
@@ -463,18 +466,18 @@ class Auth extends CI_Controller
 	{
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		/*if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
 			redirect('auth', 'refresh');
-		}
+		}*/
 
 		$tables = $this->config->item('tables', 'ion_auth');
 		$identity_column = $this->config->item('identity', 'ion_auth');
 		$this->data['identity_column'] = $identity_column;
 
 		// validate form input
-		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
+		//$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
+		//$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
 		if ($identity_column !== 'email')
 		{
 			$this->form_validation->set_rules('identity', $this->lang->line('create_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identity_column . ']');
@@ -485,7 +488,7 @@ class Auth extends CI_Controller
 			$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
 		}
 		$this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
-		$this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
+		//$this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 
@@ -507,7 +510,8 @@ class Auth extends CI_Controller
 			// check to see if we are creating the user
 			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+            $this->ion_auth->login($identity, $password);
+			redirect('/', 'refresh');
 		}
 		else
 		{
@@ -521,7 +525,7 @@ class Auth extends CI_Controller
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('first_name'),
 			];
-			$this->data['last_name'] = [
+			$this->data['last_name'] = [ 
 				'name' => 'last_name',
 				'id' => 'last_name',
 				'type' => 'text',
@@ -563,8 +567,9 @@ class Auth extends CI_Controller
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
 			];
-
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+            $this->load->view('header');
+			$this->load->view('auth/create_user', $this->data);
+			$this->load->view('footer');
 		}
 	}
 	/**
@@ -888,6 +893,12 @@ class Auth extends CI_Controller
 		{
 			return $view_html;
 		}
+	}
+	public function formTest()
+	{
+		//$this->load->view('header');
+		$this->load->view('addUser');
+		//$this->load->view('footer');
 	}
 
 }

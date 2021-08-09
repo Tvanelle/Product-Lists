@@ -27,19 +27,19 @@
            <div class="">
            
               <div class="item-1 h">
-                <img src="<?= base_url() ?>public/img/<?= $key->img1Prod; ?>" alt="Image" class="img-fluid">
+                <img src="<?= base_url() ?>public/img/<?= $key->nameImg; ?>" alt="Image" class="img-fluid">
                 <div class="item-1-contents">
                   <h3><?= $key->nameProd; ?></h3>
                   <ul>
-                    <li class="d-flex"><span>Prix:</span> <span class="price ml-auto"><?= $key->priceProd; ?></span></li>
-                    <li class="d-flex"><span>Code à barre :</span><span class="price ml-auto"><?= $key->sellNameProd; ?></span></li>
-                    <li class="d-flex"><span>Denomination de vente:</span><span class="price ml-auto"><?= $key->markProd; ?></span></li>
-                    <li class="d-flex"><span>Marque:</span><span class="price ml-auto"><?= $key->descripProd; ?></span></li>
+                    <li class="d-flex"><span>Nom du fabriquant:</span> <span class="price ml-auto"></span></li>
                     <li class="d-flex"><span>Description du produit:</span><span class="price ml-auto"><?= $key->composProd; ?></span></li>
-                    <li class="d-flex"><span>Composition du produit:</span> <span class="price ml-auto"><?= $key->useCounsProd; ?></li>
-                    <li class="d-flex"><span>Conseil d'utilisation :</span><span class="price ml-auto"><?= $key->originCountryProd; ?></span></li>
-                    <li class="d-flex"><span>Pays d'origine:</span><span class="price ml-auto"><?= $key->FormatProd; ?></span></li>
-                    <li class="d-flex"><span>Format/couleur:</span><span class="price ml-auto"><?= $key->priceProd; ?></span></li>
+                    <li class="d-flex"><span>Composition du produit:</span> <span class="price ml-auto"><?= $key->composProd; ?></li>
+                    <li class="d-flex"><span>Pays d'origine:</span><span class="price ml-auto"><?= $key->originCountryProd; ?></span></li>
+                    <li class="d-flex"><span>Adresse des point de vente :</span><span class="price ml-auto"><?= $key->adressePvte; ?></span></li>
+                    <li class="d-flex"><span>Page faceb0ok:</span><span class="price ml-auto"><?= $key->urlFacebook; ?></span></li>
+                    <li class="d-flex"><span>Page youtube:</span><span class="price ml-auto"><?= $key->urlYoutube; ?></span></li>
+                    <li class="d-flex"><span>page twitter:</span><span class="price ml-auto"><?= $key->urlTwiter; ?></span></li>
+                    <li class="d-flex"><span>Page pinterest:</span><span class="price ml-auto"><?= $key->urlPinterest; ?></span></li>
                     <li class="d-flex"><span>Autorisation:</span><span class="price ml-auto"><?= $key->autorisationProd; ?></span></li>
                     <li class="d-flex"><span>Email du fabriquant:</span><span class="price ml-auto"><?= $key->emailMaker; ?></</span></li>
                     

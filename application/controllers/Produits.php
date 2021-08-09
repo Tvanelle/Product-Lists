@@ -1,12 +1,18 @@
 <?php
 class Produits extends CI_Controller{
     public function ajouterProduit(){
-        $this->fv->set_rules('codeBarProd','','required');
+
+        $this->fv->set_rules('codeBarProd','','trim|required|min_length[12]|max_length[13]');
         if ($this->fv->run()==TRUE) {
             $codeBarProd=$this->input->post('codeBarProd');
-
+            if (strlen($codeBarProd)<13) {
+                $codeBarProd='0'.$codeBarProd;
+            }
+             else {
+                 $codeBarProd=$codeBarProd;
+             }
             //Recuperation de la valeur des champs hidden qui contiennet le nombre d'element a recuperer
-
+             echo $codeBarProd;
             $countData= $this->input->post('countData'); //recuperation du nombre d'images
             $countDataVid= $this->input->post('countDataVid'); //recuperation du nombre de videos
             $countDataUrl= $this->input->post('countDataUrl'); //recuperation du nombre d'url
@@ -16,96 +22,62 @@ class Produits extends CI_Controller{
           
             for ($i=1; $i < $countData+1 ; $i++) { 
                 $img= $this->input->post('image'.$i);
-                $imgData= array(
-                    'img'=>$img
-                );
-              $this->load->model('insertData');
-              $this->insertData->addImg($imgData);
+                $img .='|';
             }
             
             for ($i=1; $i < $countDataVid+1 ; $i++) {
                 $video= $this->input->post('video'.$i);
-                echo $video;
-                $videoData = array(
-                    'video'=> $video
-                );
-                var_dump($videoData);
-                 $this->load->model('insertData');
-                 $this->insertData->addVideo($videoData);
+                $video .='';
             }
             
             for ($i=2; $i < $countDataUrl+1 ; $i++) {
-               
                 $url= $this->input->post('url'.$i);
-                echo $url;
-                $urlData= array(
-                    'url'=>$url
-                );
-                 $this->load->model('insertData');
-                 $this->insertData->addUrl($urlData);
+                $url .='';
             }
-            
-            for ($i=1; $i < $countDataCount+1 ; $i++) {
-               
-                $paysPtVte= $this->input->post('paysPtVte'.$i);
-                echo $paysPtVte;
-                $data= array(
-                    'paysPtVte'=>$paysPtVte
-                );
-                 $this->load->model('insertData');
-                 $this->insertData->addPaysPtVte($data);
-            }
-            
-            for ($i=1; $i < $countDataCity+1 ; $i++) {
-               
-                $villePtVte= $this->input->post('villePtVte'.$i);
-                echo $villePtVte;
-                $dataVille= array(
-                    'villePtVte'=>$villePtVte
-                );
-                 $this->load->model('insertData');
-                 $this->insertData->addVillePtVte($dataVille);
-            }
-            
+            $adressePtVte = '';
             for ($i=1; $i < $countDataAddress+1 ; $i++) {
-               
-                $adressePtVte= $this->input->post('adressePtVte'.$i);
-                echo $adressePtVte;
-                $dataAddress= array(
-                    'adressePtVte'=>$adressePtVte
-                );
-                 $this->load->model('insertData');
-                 $this->insertData->addAdressePtVte($dataAddress);
-            }
+                $adressePtVte .=$this->input->post("adressePtVte$i");
+                $adressePtVte .='|';
+            }  echo 'POINT : '.$adressePtVte;
+             $data=array(
+                 'codeBarProd'=>$codeBarProd,
+                 'nameProd'=>$this->input->post('nameProd'),
+                 'sellNameProd'=>$this->input->post('sellNameProd'), 
+                 'markProd'=>$this->input->post('markProd'),
+                 'descripProd'=>$this->input->post('descripProd'),
+                 'composProd'=>$this->input->post('composProd'),
+                 'useCounsProd'=>$this->input->post('useCounsProd'),
+                 'originCountryProd'=>$this->input->post('originCountryProd'),
+                 'FormatProd'=>$this->input->post('FormatProd'),
+                 'priceProd'=>$this->input->post('priceProd'),
+                 'img'=>$img,
+                 'autorisationProd'=>$this->input->post('autorisationProd'),
 
-            $data=array(
-                'codeBarProd'=>$this->input->post('codeBarProd'),
-                'nameProd'=>$this->input->post('nameProd'),
-                'sellNameProd'=>$this->input->post('sellNameProd'), 
-                'markProd'=>$this->input->post('markProd'),
-                'descripProd'=>$this->input->post('descripProd'),
-                'composProd'=>$this->input->post('composProd'),
-                'useCounsProd'=>$this->input->post('useCounsProd'),
-                'originCountryProd'=>$this->input->post('originCountryProd'),
-                'FormatProd'=>$this->input->post('FormatProd'),
-                'priceProd'=>$this->input->post('priceProd'),
-                'autorisationProd'=>$this->input->post('autorisationProd'),
-                
-                'urlFacebook'=>$this->input->post('urlFacebook'),
-                'urlTwiter'=>$this->input->post('urlTwiter'),
-                'urlYoutube'=>$this->input->post('urlYoutube'),
-                'urlPinterest'=>$this->input->post('urlPinterest'),
-                
-                'nomPtVte'=>$this->input->post('nomPtVte'),
-                'telSitePtVte'=>$this->input->post('telSitePtVte'),
-             );
-             $this->load->model('insertData');
-             $this->insertData->addProd($data);
-        }
+                 'video'=>$video,
+                 'urlFacebook'=>$this->input->post('urlFacebook'),
+                 'urlTwiter'=>$this->input->post('urlTwiter'),
+                 'urlYoutube'=>$this->input->post('urlYoutube'),
+                 'urlPinterest'=>$this->input->post('urlPinterest'),
+                 //'url'=>$url,
+
+                 'adressePtVte'=>$adressePtVte,
+                 'nomPtVte'=>$this->input->post('nomPtVte'),
+                 'telSitePtVte'=>$this->input->post('telSitePtVte'),
+
+                 'emailMaker'=>$this->input->post('emailMaker'),
+                 'adresseMaker'=>$this->input->post('adresseMaker'),
+                 'telMaker1'=>$this->input->post('telMaker1'),
+                 'telMaker2'=>$this->input->post('telMaker2'),
+                 'siteMaker'=>$this->input->post('siteMaker'),
+              );
+              $this->load->model('insertData');
+              $this->insertData->addProd($data);
+              redirect('auth/create_user',$codeBarProd);
+         }
         else {
-             $this->load->view('header');
+             //$this->load->view('header');
              $this->load->view('addProd'); 
-             $this->load->view('footer'); 
+             //$this->load->view('footer'); 
         }
 	
     }

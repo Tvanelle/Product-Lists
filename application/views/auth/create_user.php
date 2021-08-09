@@ -1,24 +1,40 @@
-<h1><?php echo lang('create_user_heading');?></h1>
-<p><?php echo lang('create_user_subheading');?></p>
-
-<div id="infoMessage"><?php echo $message;?></div>
-
-<?php echo form_open("auth/create_user");?>
-
-      <p>
-            <?php echo lang('create_user_fname_label', 'first_name');?> <br />
+</br></br></br></br></br></br><div class="site-section bg-light" id="contact-section" >
+      <div class="col-sm-offset-3 container">
+        <div class="row justify-content-center text-center"">
+        <div class="col-7 text-center mb-5">
+          <h3>Creer gratuitement votre compte pour continuer la navigation </h3>
+          <p></p></hr></br>
+          <div id="infoMessage"><?php echo $message;?></div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-8 mb-5" >
+          <?php echo form_open("auth/create_user");?>
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer votre adresse');?> <br />
             <?php echo form_input($first_name);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_lname_label', 'last_name');?> <br />
+            </div>
+      </div>
+      
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer votre numero de telephone');?> <br />
             <?php echo form_input($last_name);?>
-      </p>
+            </div>
+      </div>
+
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer un autre numero de telephone');?> <br />
+            <?php echo form_input($phone);?>
+            </div>
+      </div>
       
       <?php
       if($identity_column!=='email') {
           echo '<p>';
-          echo lang('create_user_identity_label', 'identity');
+          echo ('Entrer votre adresse email');
           echo '<br />';
           echo form_error('identity');
           echo form_input($identity);
@@ -26,32 +42,39 @@
       }
       ?>
 
-      <p>
-            <?php echo lang('create_user_company_label', 'company');?> <br />
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer votre site web');?> <br />
             <?php echo form_input($company);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_email_label', 'email');?> <br />
+            </div>
+      </div>
+            
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer votre adresse email');?> <br />
             <?php echo form_input($email);?>
-      </p>
+            </div>
+      </div>
 
-      <p>
-            <?php echo lang('create_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_password_label', 'password');?> <br />
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Entrer un mot de passe');?> <br />
             <?php echo form_input($password);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_password_confirm_label', 'password_confirm');?> <br />
+            </div>
+      </div>
+      <div class="form-group">
+           <div class="">
+           <?php echo ('Confirmez le mot de passe');?> <br />
             <?php echo form_input($password_confirm);?>
-      </p>
-
-
-      <p><?php echo form_submit('submit', lang('create_user_submit_btn'));?></p>
-
+            </div>
+      </div>
+      
+      <p><?php echo form_submit('submit', 'Creer un compte');?></p>
+      <p><?php echo anchor('auth/login', 'Se connecter');?></p>
+      </div>
 <?php echo form_close();?>
+
+        </div>
+      </div>
+    </div><br /><br /><br /><br /><br /><br />
+
