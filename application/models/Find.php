@@ -7,4 +7,4 @@ class Find extends CI_Model{
         #var_dump($query->result());
         return $query->result();
     } 
-}
+} 

@@ -3,24 +3,7 @@ class insertData extends CI_Model{
     
     public function addProd($data)
     {
-        $dataimg=array(
-            'nameImg' => $data['img'],
-            'codeBarProd'=>$data['codeBarProd']
-        );
-        $query=$this->db->insert('images', $dataimg);
-
-        $dataVid=array(
-            'nameVideo' => $data['video'],
-            'codeBarProd'=>$data['codeBarProd']
-        );
-        $query=$this->db->insert('videos', $dataVid);
-
-        /*$dataUrl=array(
-            'nameUrl'=>$data["url"],
-            'codeBarProd'=>$data['codeBarProd']
-        );
-        $query=$this->db->insert('urlMaker', $dataUrl);
-*/
+      
         $dataProd=array(
             'codeBarProd'=> $data['codeBarProd'],
             'nameProd'=> $data['nameProd'],
@@ -41,20 +24,35 @@ class insertData extends CI_Model{
             
             'adressePvte'=>$data['adressePtVte'],
             'telSitePvte'=>$data['telSitePtVte'],
-            'nomPvte'=>$data['nomPtVte'],
-
+            'nomPvte'=>$data['nomPtVte'], 
             
+            'imgProd' => $data['img'],
+            'videoPRod' => $data['video'],
+
+            'emailMaker'=>$data['emailMaker'],
+            'adresseMaker'=>$data['adresseMaker'],
+            'telMaker1'=>$data['telMaker1'],
+            'telMaker2'=>$data['telMaker2'],
+            'siteMaker'=>$data['siteMaker'],
          );
          $query=$this->db->insert('produits', $dataProd);
-
+        
+        /*$dataUrl=array(
+            'nameUrl'=>$data["url"],
+            'codeBarProd'=>$data['codeBarProd']
+        );
+        $query=$this->db->insert('urlMaker', $dataUrl);
+*/
     }
 
 
-    /*public function changeStatus()
+    /*public function updateProd($codeBarProd)
     {
-        $stateProd=array(
-                  'prodState'=>1,
+        $user = $this->ion_auth->user()->row();
+        $data=array(
+                  'emailMaker'=>$user,
               );
-              $this->db->replace('produits', $stateProd);
+              $this->db->where('codeBarProd', $codeBarProd);
+              $this->db->replace('produits', $data);
     }*/
 }

@@ -19,19 +19,19 @@ class Produits extends CI_Controller{
             $countDataCount= $this->input->post('countDataCount'); //recuperation du nombre de pays
             $countDataCity= $this->input->post('countDataCity'); //recuperation du nombre de ville
             $countDataAddress= $this->input->post('countDataAddress'); //recuperation du nombre d'adresse
-          
+            $img='';
             for ($i=1; $i < $countData+1 ; $i++) { 
-                $img= $this->input->post('image'.$i);
+                $img .= $this->input->post("image$i");
                 $img .='|';
             }
-            
+            $video='';
             for ($i=1; $i < $countDataVid+1 ; $i++) {
-                $video= $this->input->post('video'.$i);
-                $video .='';
+                $video .= $this->input->post("video$i");
+                $video .='|';
             }
-            
+            $url='';
             for ($i=2; $i < $countDataUrl+1 ; $i++) {
-                $url= $this->input->post('url'.$i);
+                $url .= $this->input->post("url$i");
                 $url .='';
             }
             $adressePtVte = '';
@@ -70,14 +70,20 @@ class Produits extends CI_Controller{
                  'telMaker2'=>$this->input->post('telMaker2'),
                  'siteMaker'=>$this->input->post('siteMaker'),
               );
+              $_SESSION["emailMaker"]=$this->input->post('emailMaker');
+              $_SESSION["adresseMaker"]=$this->input->post('adresseMaker');
+              $_SESSION["telMaker1"]=$this->input->post('telMaker1');
+              $_SESSION["telMaker2"]=$this->input->post('telMaker2');
+              $_SESSION["siteMaker"]=$this->input->post('siteMaker');
               $this->load->model('insertData');
               $this->insertData->addProd($data);
-              redirect('auth/create_user',$codeBarProd);
+              redirect('auth/create_user');
+              //var_dump($data);
          }
         else {
              //$this->load->view('header');
              $this->load->view('addProd'); 
-             //$this->load->view('footer'); 
+             //  $this->load->view('footer'); 
         }
 	
     }

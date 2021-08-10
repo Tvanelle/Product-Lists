@@ -17,7 +17,7 @@ class Recherche extends CI_Controller{
         else {
         $this->load->view('index');
 		$this->load->view('header'); 
-		$this->load->view('footer');
+		$this->load->view('footer'); 
         }
     } 
 }

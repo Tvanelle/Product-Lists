@@ -2,9 +2,9 @@
       <div class="col-sm-offset-3 container">
         <div class="row justify-content-center text-center"">
         <div class="col-7 text-center mb-5">
-          <h3>Creer gratuitement votre compte pour continuer la navigation </h3>
+          <h4>Creer gratuitement votre compte pour continuer la navigation </h4>
           <p></p></hr></br>
-          <div id="infoMessage"><?php echo $message;?></div>
+          <div id="infoMessage"><?php echo $message.$_SESSION["emailMaker"];?></div>
         </div>
       </div>
         <div class="row">
@@ -12,25 +12,22 @@
           <?php echo form_open("auth/create_user");?>
       <div class="form-group">
            <div class="">
-           <?php echo ('Entrer votre adresse');?> <br />
             <?php echo form_input($first_name);?>
             </div>
       </div>
       
       <div class="form-group">
            <div class="">
-           <?php echo ('Entrer votre numero de telephone');?> <br />
             <?php echo form_input($last_name);?>
             </div>
       </div>
 
       <div class="form-group">
            <div class="">
-           <?php echo ('Entrer un autre numero de telephone');?> <br />
             <?php echo form_input($phone);?>
             </div>
       </div>
-      
+       
       <?php
       if($identity_column!=='email') {
           echo '<p>';
@@ -44,14 +41,12 @@
 
       <div class="form-group">
            <div class="">
-           <?php echo ('Entrer votre site web');?> <br />
             <?php echo form_input($company);?>
             </div>
       </div>
             
       <div class="form-group">
            <div class="">
-           <?php echo ('Entrer votre adresse email');?> <br />
             <?php echo form_input($email);?>
             </div>
       </div>

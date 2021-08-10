@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
 
-        <title>Adventurer – One Page Creative HTML5 Page Template</title>
+        <title>Productlist-Afoup Sarl</title>
 
         <!-- Font Awesome -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,300,300italic,700' rel='stylesheet' type='text/css'>
@@ -66,9 +66,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url() ?>index.php/Contact">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" target="_blank" href="<?= base_url() ?>index.php/Auth/login"><i class="fa fa-user fa-lg"></i></a>
-                        </li>
+                        </li>-->
                     </ul>
                     
                 </div>
@@ -89,9 +89,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url() ?>index.php/Contact">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" target="_blank" href="#!"><i class="fa fa-user fa-lg"></i></a>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>
