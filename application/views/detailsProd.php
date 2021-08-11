@@ -1,4 +1,10 @@
-
+<head>
+  <style>
+    body{
+      background-color:whitesmoke;
+    }
+    </style>
+</head>
 <div id="home" class="slider">
             <ul class="slides">
                 <li>
@@ -32,30 +38,44 @@
                   $chaineAd=(explode("|",$chainead));
               ?>
               <div class="item-1 h">
-                <img src="<?= base_url() ?>public/img/<?= $chaineF[0] ?>" alt="Image" class="img-fluid">
+                <img src="<?= base_url() ?>public/img/<?= $chaineF[0] ?>" alt="Image" class="img-fluid" width="100">
                 <div class="item-1-contents">
-                  <h3> <?= $key->nameProd; ?></h3>
-                  <ul>
-                    <li class="d-flex"><span>Nom du fabriquant:</span> <span class="price ml-auto"><?= $chaineF[0] ?></span></li>
-                    <li class="d-flex"><span>Description du produit:</span><span class="price ml-auto"><?= $key->descripProd; ?></span></li>
-                    <li class="d-flex"><span>Composition du produit:</span> <span class="price ml-auto"><?= $key->composProd; ?></li>
-                    <li class="d-flex"><span>Pays d'origine:</span><span class="price ml-auto"><?= $key->originCountryProd; ?></span></li>
-                    <li class="d-flex"><span>Adresse des point de vente :</span>
-                    <?php foreach ($chaineAd as $key1 => $value) { ?>
-                    <span class="price ml-auto"><?= $value; ?></span></br><?php  }?></li>
-                    <li class="d-flex"><span>Page facebook:</span><span class="price ml-auto"><?= $key->urlFacebook; ?></span></li>
-                    <li class="d-flex"><span>Page youtube:</span><span class="price ml-auto"><?= $key->urlYoutube; ?></span></li>
-                    <li class="d-flex"><span>page twitter:</span><span class="price ml-auto"><?= $key->urlTwiter; ?></span></li>
-                    <li class="d-flex"><span>Page pinterest:</span><span class="price ml-auto"><?= $key->urlPinterest; ?></span></li>
-                
-                    
-                </ul>
+                  <h3> <?= $key->nameProd; ?></h3><br/>
+              <div class="row"  style="background-color:white;">
+                 <div class="col-sm-3">
+                  <ul><br/>
+                    <li class="d-flex"><span>Nom du fabriquant:</span> </li>
+                    <li class="d-flex"><span>Description du produit:</span></span></li>
+                    <li class="d-flex"><span>Composition du produit:</span></li>
+                    <li class="d-flex"><span>Pays d'origine:</span><span class="price ml-auto"></span></li>
+                    <li class="d-flex"><span>Adresse des point de vente :</span></li>
+                    <li class="d-flex"><span>Page facebook:</span><span class="price ml-auto"></span></li>
+                    <li class="d-flex"><span>Page youtube:</span><span class="price ml-auto"></span></li>
+                    <li class="d-flex"><span>page twitter:</span><span class="price ml-auto"></span></li>
+                    <li class="d-flex"><span>Page pinterest:</span><span class="price ml-auto"></span></li>  
+                </ul><br/><br/>
+                </div>
+                <div class="col-sm-9">
+                <ul><br/>
+                <li class="d-flex"><span class="price ml-auto"><?= $key->nameMaker ?></span></li>
+                <li class="d-flex"><span class="price ml-auto"><?= $key->descripProd; ?></span></li>
+                <li class="d-flex"><span class="price ml-auto"><?= $key->composProd; ?></li>
+                <li class="d-flex"><span class="price ml-auto"><?= $key->originCountryProd; ?></span></li>
+                  <li class="d-flex"><?php foreach ($chaineAd as $key1 => $value) { ?>
+                     <span class="price ml-auto"><?= $value.'-'; ?></span><?php  }?></li>
+                  <li class="d-flex"> <span class="price ml-auto"><?= $key->urlFacebook; ?></span></li>
+                  <li class="d-flex"> <span class="price ml-auto"><?= $key->urlYoutube; ?></span></li>
+                  <li class="d-flex"> <span class="price ml-auto"><?= $key->urlTwiter; ?></span></li>
+                  <li class="d-flex"> <span class="price ml-auto"><?= $key->urlPinterest; ?></span></li>  
+                </ul><br/><br/>
+                    </div>
+              </div>
                 </div><?php  }?>
                 
               </div>
-
                          
           </div>
         </div>
       </div>
-    </div>
+    </div><br/><br/>
+    

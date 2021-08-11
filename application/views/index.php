@@ -235,13 +235,13 @@
             <hr />
         </section><!-- End of client Section -->
 
-        <section id="about" class="about">
+        <section id="about" class="about" style="margin-top:-250%;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="main_about_area">
                             <div class="head_title  m-y-3 wow fadeInUp">
-                                <center><h3>Pourquoi Product List ?</h3></center>
+                                <center><h3><i class="fa fa-info-circle"></i> Pourquoi Product List ?</h3></center>
                                 <p>
                                 Le packaging d’un produit donne toutes les informations utiles mais pas toutes. L’emballage d’un produit ne
                                  vous donnera pas la liste des points de vente ou le trouver (physique ou en ligne), vous n’aurez pas accès 
@@ -266,9 +266,13 @@
                                     <div class="col-sm-12">
                                        <img class="img" src="<?= base_url() ?>public/img/ajout produit.png" width="800" alt="" /> 
                                     </div>
-                                </div>
-                                <a href="<?= base_url() ?>index.php/Produits/ajouterProduit" class="btn btn-danger waves-effect waves-red"><i class="fa fa-plus m-b-1"></i>Ajouter Un Produit</a>
+                                </div>  
                             </div>
+                            <div class="row" style="margin-top:-20%">
+                            <div class="col-sm-offset-4 col-sm-6">
+                            <a href="<?= base_url() ?>index.php/Produits/ajouterProduit" style=" heigth:40px;border-raduis:7px; " class="btn btn-danger"><i class="fa fa-plus m-b-1"></i>Ajouter Un Produit</a>
+                            </div>  
+                           </div></br></br>
                         </div>
                     </div>
                 </div>

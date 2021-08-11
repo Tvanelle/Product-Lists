@@ -1,4 +1,5 @@
 <head>
+    <title>Productlist-Afoup Sarl</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="">
@@ -14,6 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+            <a href="<?= base_url() ?>index.php/Welcome" class="btn btn-danger">Retourner à l'accueil</a><br/>
                 <h2 id="heading">Ajouter Un Produit</h2>
                 <p>Product list offres plus de details sur les produits locaux enregistrer 
                                 et permet aux entreprises la presence en ligne de ces derniers</p>
@@ -36,23 +38,23 @@
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Etape 1 - 4</h2>
-                                </div>
+                                </div> 
                             </div> 
-                            <label class="fieldlabels">Numéro de code bar: *</label> 
+                            <label class="fieldlabels"><?php echo form_error('codeBarProd'); ?></label> 
                             <input type="number" name="codeBarProd" class="form-control"   placeholder="Entrer le numéro du code à barre"> 
-                            <label class="fieldlabels">Nom : *</label> 
+                            <label class="fieldlabels" style="color:red;"></label> 
                             <input type="text" name="nameProd" class="form-control"   placeholder="Entrer le nom du produit"> 
-                            <label class="fieldlabels">Password: *</label> 
+                            <label class="fieldlabels"></label> 
                             <input type="text" name="sellNameProd" class="form-control"   placeholder="Entrer la denomination de vente">
-                            <label class="fieldlabels">Confirm Password: *</label> 
+                            <label class="fieldlabels"></label> 
                             <input type="text" name="markProd" class="form-control"   placeholder="Entrer la marque du produit">
-                            
                             <textarea  name="descripProd" class="form-control"   placeholder="Entrer la description du produit"></textarea>
                             <textarea name="composProd" class="form-control"   placeholder="Entrer la composition du produit"></textarea>
                             <textarea name="useCounsProd" class="form-control"   placeholder="Entrer les conseils d'utilisation"></textarea>
                             <input type="text" name="originCountryProd" class="form-control"   placeholder="Entrer le pays d'origine">
                             <input type="text" name="FormatProd" class="form-control"   placeholder="Entrer le format/couleur">
                             <input type="number" name="priceProd" class="form-control"   placeholder="Entrer le prix de vente">
+                            <label class="fieldlabels">Ajouter une image</label> 
                             <input type="file" name="image1" class="form-control"   placeholder="Entrer une image du produit">
                             <button type="submit" class="btn btn-primary btn-sm" id="addImg"><i class="fa fa-plus">Ajouter</i></button>
                             <div class="" id="othersImg">
@@ -70,6 +72,7 @@
                                     <h2 class="fs-title">Autres details:</h2>
                                 </div>
                             </div> 
+                            <label class="fieldlabels">Ajouter une vidéo qui presente votre produit</label> 
                             <input type="file" name="video1" class="form-control"   placeholder="Video de presentation ">
                                 <button type="submit" class="btn btn-primary btn-sm" id="add"><i class="fa fa-plus">Ajouter</i></button>
                                 <div class="" id="othersVideo">
@@ -80,7 +83,7 @@
                                <input type="text" name="urlPinterest" class="form-control"   placeholder="Entrer une url de votre page Pinterest">
                                <button type="submit" class="btn btn-primary btn-sm" id="addSocialNet"><i class="fa fa-plus">Ajouter un autre réseau social</i></button>
                                <div class="" id="othersSocialNet">
-
+ 
                                </div>
                                <input type="text" name="adressePtVte1" class="form-control"   placeholder="Entrer l'adresse">
                                <button type="submit" class="btn btn-primary btn-sm" id="addAddress"><i class="fa fa-plus">Ajouter</i></button>
@@ -107,6 +110,7 @@
                                     <h2 class="steps">Etape 3 - 4</h2>
                                 </div>
                             </div> 
+                            <input type="text" name="nameMaker" class="form-control"   placeholder="Entrer nom du fabriquant">
                             <input type="text" name="emailMaker" class="form-control"   placeholder="Entrer l'adresse mail du fabriquant">
                                 <input type="email" name="adresseMaker" class="form-control"   placeholder="Entrer l'adresse  du fabriquant">
                                 <input type="tel" name="telMaker1" class="form-control"   placeholder="Entrer le telephone du fabriquant">

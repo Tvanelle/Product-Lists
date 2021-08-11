@@ -34,6 +34,7 @@ class insertData extends CI_Model{
             'telMaker1'=>$data['telMaker1'],
             'telMaker2'=>$data['telMaker2'],
             'siteMaker'=>$data['siteMaker'],
+            'nameMaker'=>$data['nameMaker'],
          );
          $query=$this->db->insert('produits', $dataProd);
         

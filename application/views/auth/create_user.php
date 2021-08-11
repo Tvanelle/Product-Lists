@@ -3,8 +3,9 @@
         <div class="row justify-content-center text-center"">
         <div class="col-7 text-center mb-5">
           <h4>Creer gratuitement votre compte pour continuer la navigation </h4>
+          
           <p></p></hr></br>
-          <div id="infoMessage"><?php echo $message.$_SESSION["emailMaker"];?></div>
+          <div id="infoMessage"><?php var_dump(form_error('password'))//$_SESSION["emailMaker"];?></div>
         </div>
       </div>
         <div class="row">
@@ -18,7 +19,7 @@
       
       <div class="form-group">
            <div class="">
-            <?php echo form_input($last_name);?>
+            <?php echo form_input($last_name);?> 
             </div>
       </div>
 

@@ -2,7 +2,7 @@
 class Produits extends CI_Controller{
     public function ajouterProduit(){
 
-        $this->fv->set_rules('codeBarProd','','trim|required|min_length[12]|max_length[13]');
+        $this->fv->set_rules('codeBarProd','Saisir un code bar comportant soit 12 soit 13 chiffres','trim|required|min_length[12]|max_length[13]');
         if ($this->fv->run()==TRUE) {
             $codeBarProd=$this->input->post('codeBarProd');
             if (strlen($codeBarProd)<13) {
@@ -21,15 +21,15 @@ class Produits extends CI_Controller{
             $countDataAddress= $this->input->post('countDataAddress'); //recuperation du nombre d'adresse
             $img='';
             for ($i=1; $i < $countData+1 ; $i++) { 
-                $img .= $this->input->post("image$i");
-                $img .='|';
+                    $img .= $this->input->post("image$i");
+                    $img .='|';
             }
             $video='';
             for ($i=1; $i < $countDataVid+1 ; $i++) {
                 $video .= $this->input->post("video$i");
                 $video .='|';
             }
-            $url='';
+            $url=''; 
             for ($i=2; $i < $countDataUrl+1 ; $i++) {
                 $url .= $this->input->post("url$i");
                 $url .='';
@@ -38,8 +38,9 @@ class Produits extends CI_Controller{
             for ($i=1; $i < $countDataAddress+1 ; $i++) {
                 $adressePtVte .=$this->input->post("adressePtVte$i");
                 $adressePtVte .='|';
-            }  echo 'POINT : '.$adressePtVte;
-             $data=array(
+            }  
+            var_dump($img);
+            $data=array(
                  'codeBarProd'=>$codeBarProd,
                  'nameProd'=>$this->input->post('nameProd'),
                  'sellNameProd'=>$this->input->post('sellNameProd'), 
@@ -69,15 +70,17 @@ class Produits extends CI_Controller{
                  'telMaker1'=>$this->input->post('telMaker1'),
                  'telMaker2'=>$this->input->post('telMaker2'),
                  'siteMaker'=>$this->input->post('siteMaker'),
+                 'nameMaker'=>$this->input->post('nameMaker'),
               );
               $_SESSION["emailMaker"]=$this->input->post('emailMaker');
               $_SESSION["adresseMaker"]=$this->input->post('adresseMaker');
               $_SESSION["telMaker1"]=$this->input->post('telMaker1');
               $_SESSION["telMaker2"]=$this->input->post('telMaker2');
               $_SESSION["siteMaker"]=$this->input->post('siteMaker');
+              $_SESSION["nameMaker"]=$this->input->post('nameMaker');
               $this->load->model('insertData');
               $this->insertData->addProd($data);
-              redirect('auth/create_user');
+              $this->load->view('success');
               //var_dump($data);
          }
         else {
@@ -87,5 +90,5 @@ class Produits extends CI_Controller{
         }
 	
     }
-    
+   
 }

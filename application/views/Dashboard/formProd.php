@@ -86,96 +86,123 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <?php foreach ($data as $key) { 
                     $chaine = $key->imgProd;
                     $chaineF=(explode("|",$chaine));
+                    echo count($chaineF);
                     ?>
-                <form action="<?= base_url() ?>index.php/Dashboard/updateProd/" method="POST">
+                <form action="<?= base_url() ?>index.php/Dashboard/updateProd" method="post">
               <div class="form-group">
                 <div class="">
-                  <input type="number" name="codeBarProd" class="form-control" value=<?= $key->codeBarProd ?>>
+                  <input type="number" name="codeBarProd" class="form-control" value=<?=$key->codeBarProd?>>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="nameProd" class="form-control" value=<?= $key->nameProd ?>>
+                  <input type="text" name="nameProd" class="form-control" value=<?=$key->nameProd?>>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="sellNameProd" class="form-control" value=<?= $key->sellNameProd ?>>
+                  <input type="text" name="sellNameProd" class="form-control" value=<?=$key->nameProd?>>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="markProd" class="form-control" value=<?= $key->markProd ?>>
+                  <input type="text" name="markProd" class="form-control" value=<?=$key->nameProd?>>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <textarea  name="descripProd" class="form-control" value=<?= $key->descripProd ?>></textarea>
+                  <textarea  name="descripProd" class="form-control"   placeholder="Entrer la description du produit"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <textarea name="composProd" class="form-control" value=<?= $key->composProd ?>></textarea>
+                  <textarea name="composProd" class="form-control"   placeholder="Entrer la composition du produit"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <textarea name="useCounsProd" class="form-control" value=<?= $key->useCounsProd ?>></textarea>
+                  <textarea name="useCounsProd" class="form-control"   placeholder="Entrer les conseils d'utilisation"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="originCountryProd" class="form-control" value=<?= $key->originCountryProd ?>>
+                  <input type="text" name="originCountryProd" class="form-control"   placeholder="Entrer le pays d'origine">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="FormatProd" class="form-control" value=<?= $key->FormatProd ?>>
+                  <input type="text" name="FormatProd" class="form-control"   placeholder="Entrer le format/couleur">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="number" name="priceProd" class="form-control" value=<?= $key->priceProd ?>>
+                  <input type="number" name="priceProd" class="form-control"   placeholder="Entrer le prix de vente">
                 </div>
               </div>
-              <?php foreach ($chaineF as $key1 => $value) { ?>
               <div class="form-group">
-                   <div class="">
-                      <input type="file" name="image1" class="form-control" value=<?= $value ?>>
+                <div class="row">
+                   <div class="col-sm-8">
+                      <input type="file" name="image1" class="form-control"   placeholder="Entrer une image du produit">
+                   </div>
+                   <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary btn-sm" id="addImg"><i class="fa fa-plus">Ajouter</i></button>
                    </div>
               </div>
-              <?php  }?>
+              <div class="form-group" id="othersImg">
+              </div>
+              <div class="row">
+                <?php for ($i=0; $i < count($chaineF) ; $i++) {  ?>
+                <div class="col-sm-2">
+                <img src="<?= base_url() ?>public/img/<?=$chaineF[$i]?>" alt="Image" class="img-fluid" width="100">
+                <br/><br/><br/>
+                <input type="hidden" name="imager<?=$i?>" value=<?=$chaineF[$i]?>>
+              </div><?php  }?></div>
+              <input type="hidden" name="nbImage" value=<?=count($chaineF)?>>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="autorisationProd" class="form-control" value=<?= $key->autorisationProd ?>>
+                  <input type="text" name="autorisationProd" class="form-control"   placeholder="Entrer une autorisation">
                 </div>
               </div></hr></br>
 
               <p style="font-weight:bold;border-bottom:3px solid pink;font-size:18px;text-align:center">Autres details concernant votre  produit</p></hr></br>
               
               <div class="form-group">
-                   <div class="">
-                      <input type="file" name="video1" class="form-control" value=<?= $key->codeBarProd ?>>
+                <div class="row">
+                   <div class="col-sm-8">
+                      <input type="file" name="video1" class="form-control"   placeholder="Video de presentation ">
                    </div>
+                   <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary btn-sm" id="add"><i class="fa fa-plus">Ajouter</i></button>
+                   </div>
+              </div>
+              <div class="form-group" id="othersVideo">
+              </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="urlFacebook" class="form-control" value=<?= $key->urlFacebook ?>>
+                  <input type="text" name="urlFacebook" class="form-control"   placeholder="Entrer une url de votre page facebook">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="urlTwiter"class="form-control" value=<?= $key->urlTwiter ?>>
+                  <input type="text" name="urlTwiter"class="form-control"   placeholder="Entrer une url de votre page twitter">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="urlYoutube" class="form-control" value=<?= $key->urlYoutube ?>>
+                  <input type="text" name="urlYoutube" class="form-control"   placeholder="Entrer une url de votre page You tube">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="urlPinterest" class="form-control" value=<?= $key->urlPinterest ?>>
+                  <input type="text" name="urlPinterest" class="form-control"   placeholder="Entrer une url de votre page Pinterest">
                 </div>
+              </div>
+              <div class="form-group">
+              <div class="col-sm-2">
+                  <button type="submit" class="btn btn-primary btn-sm" id="addSocialNet"><i class="fa fa-plus">Ajouter un autre réseau social</i></button>
+              </div>
+              </div> 
+              <div class="form-group" id="othersSocialNet">
               </div>
               </hr></br></br></br>
 
@@ -184,27 +211,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
               <div class="form-group">
                    <div class="">
-                      <input type="email" name="emailMaker" class="form-control" value=<?= $key->emailMaker ?>>
+                      <input type="email" name="emailMaker" class="form-control"   placeholder="Entrer l'adresse du fabriquant">
                    </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="adresseMaker" class="form-control" value=<?= $key->adresseMaker ?>>
+                  <input type="text" name="adresseMaker" class="form-control"   placeholder="Entrer l'adresse d fabriquant">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="tel" name="telMaker1"class="form-control"  value=<?= $key->telMaker1 ?>>
+                  <input type="tel" name="telMaker1"class="form-control"   placeholder="Entrer le telephone du fabriquant">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="tel" name="telMaker2" class="form-control"  value=<?= $key->telMaker2 ?>>
+                  <input type="tel" name="telMaker2" class="form-control"   placeholder="Entrer un autre telephone du fabriquant">
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="siteMaker" class="form-control"  value=<?= $key->siteMaker ?>>
+                  <input type="text" name="siteMaker" class="form-control"   placeholder="Entrer le site web du fabriquant">
                 </div>
               </div>
               </div>
@@ -218,23 +245,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="form-group">
                 <div class="row">
                    <div class="col-sm-8">
-                      <input type="text" name="adressePtVte1" class="form-control" value=<?= $key->adressePvte ?>>
+                      <input type="text" name="adressePtVte1" class="form-control" value=<?=$key->nameProd?>>
+                   </div>
+                   <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary btn-sm" id="addAddress"><i class="fa fa-plus">Ajouter</i></button>
                    </div>
               </div>
+              <div class="form-group" id="othersAddress">
+              </div>
+              
               <div class="form-group">
                 <div class="">
-                  <input type="text" name="nomPtVte" class="form-control" value=<?= $key->nomPvte ?>>
+                  <input type="text" name="nomPtVte" class="form-control"   placeholder="Entrer le nom">
                 </div>
               </div>
               
               <div class="form-group">
                 <div class="">
-                <input type="text" name="telSitePtVte" class="form-control" value=<?= $key->telSitePvte ?>>
+                <input type="text" name="telSitePtVte" class="form-control"   placeholder="Entrer le telephone/Site web">
+                <input type="hidden" value="1" id="countData" name="countData">
+                <input type="hidden" value="1" id="countDataVid" name="countDataVid">
+                <input type="hidden" value="1" id="countDataCount" name="countDataCount">
+                <input type="hidden" value="1" id="countDataCity" name="countDataCity">
+                <input type="hidden" value="1" id="countDataAddress" name="countDataAddress">
+                <input type="hidden" value="1" id="countDataUrl" name="countDataUrl">
                 </div>
               </div>
+
               <div class="form-group">
                 <div class="">
-                  <input type="submit" class="btn btn-block btn-primary" value="Publier">
+                  <input type="submit" class="btn btn-block btn-primary" value="Enregistrer">
                 </div></div>
               </div>
             </form> <?php } ?>
@@ -249,3 +289,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    <script type="text/javascript" src="<?= base_url() ?>public/js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>public/js/show.js"></script>
