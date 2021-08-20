@@ -51,9 +51,9 @@
                 <!--Content for large and medium screens-->
                 <div class="navbar-desktop">
                     <!--Navbar Brand-->
-                    <a class="navbar-brand" href="#home"><img src="<?= base_url() ?>public/img/Products-lists.jpg" alt="" /></a>
+                    <a class="navbar-brand" href="#home"><img src="<?= base_url() ?>public/img/Products-list.png" alt="" width="170"/></a>
                     <!--Links-->
-                     <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
+                     <ul class="nav navbar-nav pull-right hidden-md-down">
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url() ?>index.php/Welcome">Accueil</a>
                         </li>
@@ -64,7 +64,13 @@
                             <a class="nav-link" href="<?= base_url() ?>index.php/Recherche">Obtenir un code à barre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url() ?>index.php/Contact">Contact</a>
+                            <a class="nav-link" href="<?= base_url() ?>index.php/Recherche">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url() ?>index.php/Recherche">Important</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url() ?>index.php/Others/Contact">Contact</a>
                         </li>
                         <!--<li class="nav-item">
                             <a class="nav-link" target="_blank" href="<?= base_url() ?>index.php/Auth/login"><i class="fa fa-user fa-lg"></i></a>

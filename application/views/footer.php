@@ -4,13 +4,7 @@
                     <div class="main_footer_area white-text p-b-3">
                         <div class="col-md-3">
                             <div class="single_f_widget p-t-3 wow fadeInUp">
-                                <img src="<?= base_url() ?>public/img/Products-lists.jpg" alt="" />
-                                <div class="single_f_widget_text">
-                                    <p>
-                                        <a href=""> </a>
-                                    </p>
-                                    
-                                </div>
+                                <img src="<?= base_url() ?>public/img/LOGO-BARCODES- LIST.png" width="30" alt="" />
                             </div>
                         </div>
                         <div class="col-md-3">

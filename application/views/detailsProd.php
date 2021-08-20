@@ -10,7 +10,7 @@
                 <li>
                     <img src="<?= base_url() ?>public/img/Header/Scanner-code-barre.jpg"> <!-- random image -->
                     <div class="caption center-align">
-                        <div class="single_home">
+                        <div class="single_home"> 
                             <h3>Details complet de votre recherche</h3>
                             <p>Voici toutes les informations disponnible sur votre prduit</p>
                         </div>

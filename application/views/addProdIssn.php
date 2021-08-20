@@ -10,12 +10,12 @@
 <script type="text/javascript" src="<?= base_url() ?>public/js/addUser.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>public/js/show.js"></script>
 </head>
- <div class="container-fluid" id="eanDiv">
+<div class="container-fluid" id="issnDiv">
     <div class="row justify-content-center">
         <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <a href="<?= base_url() ?>index.php/Welcome" class="btn btn-danger">Retourner à l'accueil</a><br/>
-                <h2 id="heading">Ajouter Un Produit</h2>
+                <h2 id="heading">Ajouter Un Magazine</h2>
                 <p>Choisir le type de réference a enregistrer</p>
                 <div class="row">
                     <div class="col-sm-4">
@@ -23,7 +23,7 @@
                     <p>Tous produits sauf livres et magazines </p>
                     </div>
                     <div class="col-sm-4">
-                    <a href="addFormIsbn" class="btn btn-danger" id="isbn">ISBN PRODUCT CODES</a><br/> 
+                    <a href="Produits/addForm" class="btn btn-danger" id="isbn">ISBN PRODUCT CODES</a><br/> 
                     <p>Code pour les livres il debute par 978 </p>
                     </div>
                     <div class="col-sm-4">
@@ -31,13 +31,13 @@
                     <p>Code pour les magazines il debute par 977 </p>
                     </div>
                 </div>
-                <form id="msform" action="<?= base_url() ?>index.php/Produits/ajouterProduit" method="post" enctype="multipart/form-data" class="divEan">
+                <form id="msform" style="" enctype="multipart/form-data" action="<?= base_url() ?>index.php/Produits/ajouterProduitIssn" method="post" class="issn">
                     <!-- progressbar -->
                     <ul id="progressbar">
-                        <li class="active" id="account"><strong>Details du produit</strong></li>
+                        <li class="active" id="account"><strong>Details du Magazine</strong></li>
                         <li id="personal"><strong>Autres details</strong></li>
-                        <li id="payment"><strong>Details du fabriquant</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
+                        <li id="payment"><strong>Agents d'enregistrement</strong></li>
+                        <li id="confirm"><strong>Fin</strong></li>
                     </ul>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -46,33 +46,36 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Details du produit:</h2>
+                                    <h2 class="fs-title">Details du Magazine:</h2>
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Etape 1 - 4</h2>
                                 </div> 
                             </div> 
                             <label class="fieldlabels"><?php echo form_error('codeBarProd'); ?></label> 
-                            <input type="number" name="codeBarProd" class="form-control"   placeholder="Entrer le numéro du code à barre"> 
+                            <input type="number" name="codeBarProd" class="form-control"   placeholder="Entrer le numéro ISSN"> 
                             <label class="fieldlabels" style="color:red;"></label> 
-                            <input type="text" name="nameProd" class="form-control"   placeholder="Entrer le nom du produit"> 
+                            <input type="text" name="nameProd" class="form-control"   placeholder="Entrer le nom de publication"> 
                             <label class="fieldlabels"></label> 
-                            <input type="text" name="sellNameProd" class="form-control"   placeholder="Entrer la denomination de vente">
-                            <label class="fieldlabels"></label> 
-                            <input type="text" name="markProd" class="form-control"   placeholder="Entrer la marque du produit">
-                            <textarea  name="descripProd" class="form-control"   placeholder="Entrer la description du produit"></textarea>
-                            <textarea name="composProd" class="form-control"   placeholder="Entrer la composition du produit"></textarea>
-                            <textarea name="useCounsProd" class="form-control"   placeholder="Entrer les conseils d'utilisation"></textarea>
+                            <input type="text" name="sellNameProd" class="form-control"   placeholder="Entrer le titre du numéro">
+                            <label class="fieldlabels"></label>
+                            <input type="text" name="autName1" class="form-control"   placeholder="Entrer le nom des auteurs">
+                            <button type="submit" class="btn btn-primary btn-sm" id="addAutSn"><i class="fa fa-plus">Ajouter</i></button>
+                            <div class="" id="othersAutSn">
+                            </div> 
+                            <input type="text" name="markProd" class="form-control"   placeholder="Entrer la maison d'edition">
+                            <textarea  name="descripProd" class="form-control"   placeholder="Entrer le résumé"></textarea>
+                            <input name="composProd" class="form-control"   placeholder="Entrer le nombre de pages"></input>
+                            <input name="useCounsProd" class="form-control"   placeholder="Entrer la collection"></input>
                             <input type="text" name="originCountryProd" class="form-control"   placeholder="Entrer le pays d'origine">
-                            <input type="text" name="FormatProd" class="form-control"   placeholder="Entrer le format/couleur">
+                            <input type="text" name="FormatProd" class="form-control"   placeholder="Entrer le Genre">
                             <input type="number" name="priceProd" class="form-control"   placeholder="Entrer le prix de vente">
-                             
                             <label class="fieldlabels">Ajouter une image</label> 
-                            <input type="file" name="image1" class="form-control"   placeholder="Entrer une image du produit">
-                            <button type="submit" class="btn btn-primary btn-sm" id="addImg"><i class="fa fa-plus">Ajouter</i></button>
-                            <div class="" id="othersImg">
+                            <input type="file" name="image1" class="form-control"   placeholder="Ajouter une image">
+                            <button type="submit" class="btn btn-primary btn-sm" id="addImgSn"><i class="fa fa-plus">Ajouter</i></button>
+                            <div class="" id="othersImgSn">
                             </div>
-                            <input type="text" name="autorisationProd" class="form-control"   placeholder="Entrer une autorisation">
+                            <input type="text" name="autorisationProd" class="form-control"   placeholder="Entrer la date">
                         </div> <input type="button" name="next" class="next action-button" value="Suivant" />
                     </fieldset>
                     <fieldset>
@@ -87,31 +90,32 @@
                             </div> 
                             <label class="fieldlabels">Ajouter une vidéo qui presente votre produit</label> 
                             <input type="text" name="video1" class="form-control"   placeholder="Video de presentation ">
-                                <button type="submit" class="btn btn-primary btn-sm" id="add"><i class="fa fa-plus">Ajouter</i></button>
-                                <div class="" id="othersVideo">
+                                <button type="submit" class="btn btn-primary btn-sm" id="addSn"><i class="fa fa-plus">Ajouter</i></button>
+                                <div class="" id="othersVideoSn">
                                 </div>
                                 <input type="text" name="urlFacebook" class="form-control"   placeholder="Entrer une url de votre page facebook">
                                 <input type="text" name="urlTwiter"class="form-control"   placeholder="Entrer une url de votre page twitter">
                                <input type="text" name="urlYoutube" class="form-control"   placeholder="Entrer une url de votre page You tube">
                                <input type="text" name="urlPinterest" class="form-control"   placeholder="Entrer une url de votre page Pinterest">
-                               <button type="submit" class="btn btn-primary btn-sm" id="addSocialNet"><i class="fa fa-plus">Ajouter un autre réseau social</i></button>
-                               <div class="" id="othersSocialNet">
+                               <button type="submit" class="btn btn-primary btn-sm" id="addSocialNetSn"><i class="fa fa-plus">Ajouter un autre réseau social</i></button>
+                               <div class="" id="othersSocialNetSn">
  
                                </div>
                                <input type="text" name="adressePtVte1" class="form-control"   placeholder="Entrer l'adresse">
-                               <button type="submit" class="btn btn-primary btn-sm" id="addAddress"><i class="fa fa-plus">Ajouter</i></button>
-                                <div class="" id="othersAddress">
+                               <button type="submit" class="btn btn-primary btn-sm" id="addAddressSn"><i class="fa fa-plus">Ajouter</i></button>
+                                <div class="" id="othersAddressSn">
                                     </div>
                                <input type="text" name="nomPtVte" class="form-control"   placeholder="Entrer le nom">
                                <input type="text" name="telSitePtVte" class="form-control"   placeholder="Entrer le telephone/Site web">
-                               <input type="hidden" value="1" id="countData" name="countData">
-                               <input type="hidden" value="1" id="countDataVid" name="countDataVid">
-                               <input type="hidden" value="1" id="countDataCount" name="countDataCount">
-                               <input type="hidden" value="1" id="countDataCity" name="countDataCity">
-                               <input type="hidden" value="1" id="countDataAddress" name="countDataAddress">
-                               <input type="hidden" value="1" id="countDataUrl" name="countDataUrl"> 
-                               <input type="hidden" value="CodeBar" id="" name="nameCategory">
-                               <input type="hidden" value="1" id="" name="idCategory"> 
+                               <input type="hidden" value="1" id="countDataSn" name="countDataSn">
+                               <input type="hidden" value="1" id="countDataVidSn" name="countDataVidSn">
+                               <input type="hidden" value="1" id="countDataCountSn" name="countDataCountSn">
+                               <input type="hidden" value="1" id="countDataCitySn" name="countDataCitySn">
+                               <input type="hidden" value="1" id="countDataAddressSn" name="countDataAddressSn">
+                               <input type="hidden" value="1" id="countDataUrlSn" name="countDataUrlSn"> 
+                               <input type="hidden" value="Issn" id="" name="nameCategory">
+                               <input type="hidden" value="3" id="" name="idCategory">
+                               <input type="hidden" value="1" id="countAutSn" name="countAutSn">
                         </div> <input type="button" name="next" class="next action-button" value="Suivant" /> 
                         <input type="button" name="previous" class="previous action-button-previous" value="Précedent" />
                     </fieldset>
@@ -125,17 +129,10 @@
                                     <h2 class="steps">Etape 3 - 4</h2>
                                 </div>
                             </div> 
-                            <input type="text" name="nameMaker" class="form-control"   placeholder="Entrer nom du fabriquant">
-                            <input type="text" name="emailMaker" class="form-control"   placeholder="Entrer l'adresse mail du fabriquant">
-                                <input type="email" name="adresseMaker" class="form-control"   placeholder="Entrer l'adresse  du fabriquant">
-                                <input type="tel" name="telMaker1" class="form-control"   placeholder="Entrer le telephone du fabriquant">
-                                <input type="tel" name="telMaker2" class="form-control"   placeholder="Entrer le telephone du fabriquant">
-                                <input type="text" name="siteMaker" class="form-control"   placeholder="Entrer le site web du fabriquant">
-                                 <h4>Agents d'enregistrement</h4>
-                                 <input type="text" name="nameMakerE" class="form-control"   placeholder="Entrer le nom et prénoms">
-                                 <input type="text" name="emailMakerE" class="form-control"   placeholder="Entrer la fonction">
-                                <input type="email" name="adresseMakerE" class="form-control"   placeholder="Entrer l'adresse mail">
-                                <input type="tel" name="telMaker1E" class="form-control"   placeholder="Entrer le telephone">
+                            <input type="text" name="nameMaker" class="form-control"   placeholder="Entrer le nom et prénoms">
+                            <input type="text" name="emailMaker" class="form-control"   placeholder="Entrer la fonction">
+                                <input type="email" name="adresseMaker" class="form-control"   placeholder="Entrer l'adresse mail">
+                                <input type="tel" name="telMaker1" class="form-control"   placeholder="Entrer le telephone">
                         </div> <input type="submit" name="next" class="next action-button" value="Enregistrer" /> 
                         <input type="button" name="previous" class="previous action-button-previous" value="Précedent" />
                     </fieldset>
@@ -165,6 +162,3 @@
         </div>
     </div>
 </div>
-
-<!--section isbn -->
-

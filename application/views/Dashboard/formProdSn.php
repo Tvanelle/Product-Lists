@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     $chaineA=$key->adressePvte;
                     $chaineAm=(explode("|",$chaineA));
                     ?>
-                <form action="<?= base_url() ?>index.php/Dashboard/updateProd" method="post">
+                <form action="<?= base_url() ?>index.php/Dashboard/updateProdSn" method="post">
               <div class="form-group">
                 <div class="">
                   <input type="number" name="codeBarProd" class="form-control" value=<?=$key->codeBarProd?>>
@@ -216,39 +216,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </hr></br></br></br>
 
 
-              <p style="font-weight:bold;border-bottom:3px solid pink;font-size:18px;text-align:center"> Details concernant le fabriquant du  produit</p></hr></br>
-              
-              <div class="form-group">
-                   <div class="">
-                      <input type="email" name="nameMaker" class="form-control"  value=<?=$key->nameMaker?>>
-                   </div>
-              </div>
-              <div class="form-group">
-                   <div class="">
-                      <input type="email" name="emailMaker" class="form-control"  value=<?=$key->emailMaker?>>
-                   </div>
-              </div>
-              <div class="form-group">
-                <div class="">
-                  <input type="text" name="adresseMaker" class="form-control"  value=<?=$key->adresseMaker?>>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="">
-                  <input type="tel" name="telMaker1"class="form-control"  value=<?=$key->telMaker1?>>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="">
-                  <input type="tel" name="telMaker2" class="form-control"  value=<?=$key->telMaker2?>>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="">
-                  <input type="text" name="siteMaker" class="form-control"  value=<?=$key->siteMaker?>>
-                </div>
-              </div>
-              <h4>Agents d'enregistrement</h4>
+              <p style="font-weight:bold;border-bottom:3px solid pink;font-size:18px;text-align:center">               
+              <h4>Agents d'enregistrement</h4></p></hr></br>
+
                 <input type="text" name="nameMakerE" class="form-control"  value=<?=$key->nameMakerE?>></br>
                  <input type="text" name="emailMakerE" class="form-control"   value=<?=$key->emailMakerE?>></br>
                  <input type="email" name="adresseMakerE" class="form-control"  value=<?=$key->adresseMakerE?>></br>

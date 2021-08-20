@@ -58,10 +58,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url() ?>public/img/Products-lists.jpg" class="img-circle elevation-5" alt="User Image">
+          <!--<img src="public/img/Products-lists.jpg" class="img-circle elevation-5" alt="User Image"> -->
         </div>
         <div class="info">
-          <a href="#" class="d-block">Afoup-Corp</a>
+          <a href="#" class="d-block"><h4>Afoup-Corp</h4></a>
         </div>
       </div>
 
@@ -119,8 +119,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td><?= $key->codeBarProd ?></td>
                     <td><?= $key->emailMaker ?></td>
                     <td><?= $key->telMaker1 ?></td>
-                    <td><?= anchor("Dashboard/showForm/".$key->codeBarProd ,'Modifier'); ?></td>
-                  </tr> <?php } ?>
+                    <?php  if ($key->nameCategory==1) {?>
+                    <td><?= anchor("Dashboard/showForm/".$key->codeBarProd ,'Modifier'); ?><?php }?></td>
+                    <?php  if ($key->nameCategory==2) {?>
+                    <td><?= anchor("Dashboard/showFormBn/".$key->codeBarProd ,'Modifier'); ?><?php }?></td>
+                  <?php  if ($key->nameCategory==3){?>
+                    <td><?= anchor("Dashboard/showFormSn/".$key->codeBarProd ,'Modifier'); ?><?php }?></td>
+                    </tr> <?php } ?>
                   </tbody>
                   <tfoot>
                   <tr>

@@ -14,7 +14,7 @@ class findProd extends CI_Model {
     public function updateProd($data){
 
         $codeBarProd=$data['codeBarProd'];
-        $dataProd=array(
+        $dataProd=array( 
             'codeBarProd'=> $data['codeBarProd'],
             'nameProd'=> $data['nameProd'],
             'sellNameProd'=> $data['sellNameProd'],
@@ -32,10 +32,10 @@ class findProd extends CI_Model {
             'urlYoutube'=> $data['urlYoutube'],
             'urlPinterest'=> $data['urlPinterest'],
             
-            //'adressePVte'=>$data['adressePtVte'],
+            'adressePvte'=>$data['adressePvte'],
             'telSitePvte'=>$data['telSitePvte'],
-            'nomPvte'=>$data['nomPvte'],
-             
+            'nomPvte'=>$data['nomPvte'], 
+            
             'imgProd' => $data['imgProd'],
             'videoProd' => $data['videoProd'],
 
@@ -44,7 +44,14 @@ class findProd extends CI_Model {
             'telMaker1'=>$data['telMaker1'],
             'telMaker2'=>$data['telMaker2'],
             'siteMaker'=>$data['siteMaker'],
-            'prodState'=>1,
+            'nameMaker'=>$data['nameMaker'],
+
+            //'nameCategory'=>$data['idCategory'],
+
+            'emailMakerE'=>$data['emailMakerE'],
+            'adresseMakerE'=>$data['adresseMakerE'],
+            'telMaker1E'=>$data['telMaker1E'],
+            'nameMakerE'=>$data['nameMakerE'],
          );
          $this->db->where('codeBarProd', $codeBarProd);
          $this->db->replace('produits', $data);

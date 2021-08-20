@@ -19,8 +19,8 @@ h5{
     text-transform: uppercase;
 }
 h1 {
-    font-size: 5rem;
-    line-height: 6.5rem;
+    font-size: 5rem; 
+    line-height: 6.5rem; 
     color: #fff;
 }
 h2 {
